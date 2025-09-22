@@ -140,5 +140,53 @@ public class BinarySearchUtils implements BinarySearch {
         }
         return candidate;
     }
+
+    /*
+     * 当数组中重复元素时，希望返回重复元素的第一个索引,如果没有命中，则返回
+     * 插入点，如果是重复元素，则最左插入点。
+     * 主要改动点为 当找到目前元素后，不直接返回，而是作为记录，
+     * 并继续向左找，直到找到第一个索引，进行返回即可
+     *
+     * */
+    public int searchLeftMostV2(int[] arr, int target) {
+        int n = arr.length;
+        if (n == 1) {
+            return arr[0] == target ? 0 : -1;
+        }
+        int left = 0, right = n - 1;
+        while (left <= right) {
+            int mid = (left + right) >>> 1;
+            if (arr[mid] < target) {
+                left = mid + 1;
+            } else{
+                right = mid-1;
+            }
+        }
+        return left;        // 改动1
+    }
+
+    /*
+     * 当数组中重复元素时，希望返回重复元素的最后一个索引。如果没有命中，则返回
+     * 插入点，如果是重复元素，则最右插入点。
+     * 主要改动点为 当找到目前元素后，不直接返回，而是作为记录，
+     * 并继续向右查找，直到找到第一个索引，进行返回即可
+     *
+     * */
+    public int searchRightMostV2(int[] arr, int target) {
+        int n = arr.length;
+        if (n == 1) {
+            return arr[0] == target ? 0 : -1;
+        }
+        int left = 0, right = n - 1;
+        while (left <= right) {
+            int mid = (left + right) >>> 1;
+            if (arr[mid] <= target) {
+                left = mid + 1;
+            } else  {
+                right = mid - 1;
+            }
+        }
+        return left;               // 改动1
+    }
 }
 

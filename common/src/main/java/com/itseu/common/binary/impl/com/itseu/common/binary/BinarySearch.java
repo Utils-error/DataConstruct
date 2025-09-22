@@ -10,4 +10,9 @@ public interface BinarySearch {
     int searchLeftMost(int[] arr, int target);
 
     int searchRightMost(int[] arr, int target);
+
+    int searchLeftMostV2(int[] arr, int target);
+
+    int searchRightMostV2(int[] arr, int target);
+
 }

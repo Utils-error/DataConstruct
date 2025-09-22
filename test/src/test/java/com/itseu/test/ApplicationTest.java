@@ -27,4 +27,14 @@ public class ApplicationTest {
         Assert.assertEquals(-1, binarySearchUtils.search(arr,10));
         Assert.assertEquals(-1, binarySearchUtils.search(arr,30));
     }
+
+    @Test
+    @DisplayName("插入点测试")
+    public void test3(){
+        int[] arr={1,2,4,4,4,7,7};
+        Assert.assertEquals(2, binarySearchUtils.searchLeftMostV2(arr,4));
+        Assert.assertEquals(6, binarySearchUtils.searchLeftMostV2(arr,5)+1);
+        Assert.assertEquals(2, binarySearchUtils.searchRightMostV2(arr,2));
+        Assert.assertEquals(6, binarySearchUtils.searchRightMostV2(arr,4)+1);
+    }
 }
