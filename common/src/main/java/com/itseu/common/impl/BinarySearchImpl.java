@@ -1,10 +1,8 @@
-package com.itseu.common.binary.impl;
+package com.itseu.common.impl;
 
-import com.itseu.common.binary.impl.com.itseu.common.binary.BinarySearch;
+import com.itseu.common.BinarySearch;
 
-import java.time.chrono.MinguoDate;
-
-public class BinarySearchUtils implements BinarySearch {
+public class BinarySearchImpl implements BinarySearch {
     /*  二分查找（左闭右闭）
         相关疑问
         1.while循环条件：为什么是left <= right？

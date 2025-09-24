@@ -1,13 +1,16 @@
 package com.itseu.test;
 
-import com.itseu.common.binary.impl.BinarySearchUtils;
+import com.itseu.common.impl.BinarySearchImpl;
+import com.itseu.common.impl.DynamicArray;
 import org.junit.jupiter.api.DisplayName;
 
 import org.junit.Test;
 import org.junit.Assert;
+
+
 public class ApplicationTest {
 
-    private static BinarySearchUtils binarySearchUtils = new BinarySearchUtils();
+    private static BinarySearchImpl binarySearchUtils = new BinarySearchImpl();
 
     @Test
     @DisplayName("Binary Search找到了")
@@ -36,5 +39,29 @@ public class ApplicationTest {
         Assert.assertEquals(6, binarySearchUtils.searchLeftMostV2(arr,5)+1);
         Assert.assertEquals(2, binarySearchUtils.searchRightMostV2(arr,2));
         Assert.assertEquals(6, binarySearchUtils.searchRightMostV2(arr,4)+1);
+    }
+
+    @Test
+    public void test4(){
+
+        DynamicArray array = new DynamicArray();
+        System.out.println(array.toString());
+        array.addLast(1);
+        array.addLast(2);
+        array.addLast(2);
+        array.addLast(2);
+        array.addLast(2);
+        array.addLast(2);
+        array.add(6,10);
+        array.add(2,12);
+
+        array.foreach(ele ->System.out.print(ele + " "));
+        System.out.println();
+        for(Object ele : array){
+            System.out.print(ele+" ");
+        }
+        System.out.println();
+        array.stream().forEach(ele ->System.out.print(ele + " "));
+
     }
 }

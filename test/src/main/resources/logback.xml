@@ -1,0 +1,14 @@
+<configuration>
+    <!-- 控制台输出 -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!-- 日志格式：时间 级别 类名 - 消息 -->
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 全局日志级别（DEBUG/INFO/WARN/ERROR） -->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" /> <!-- 关联控制台输出 -->
+    </root>
+</configuration>

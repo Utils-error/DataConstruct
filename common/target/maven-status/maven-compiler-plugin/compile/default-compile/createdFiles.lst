@@ -1,1 +1,3 @@
-com\itseu\common\binary\BinarySearchUtils.class
+com\itseu\common\BinarySearch.class
+com\itseu\common\impl\BinarySearchImpl.class
+com\itseu\common\impl\DynamicArray.class
