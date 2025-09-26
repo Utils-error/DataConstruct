@@ -1,6 +1,7 @@
 package com.itseu.test;
 
 import com.itseu.common.impl.BinarySearchImpl;
+import com.itseu.common.impl.DoublyLinkedList;
 import com.itseu.common.impl.DynamicArray;
 import com.itseu.common.impl.SingleLinkedList;
 import org.junit.jupiter.api.DisplayName;
@@ -96,5 +97,26 @@ public class ApplicationTest {
         list.remove(3);
         list.loop1(val -> System.out.print(val + " "));
         System.out.println();
+    }
+
+    @Test
+    @DisplayName("双向链表方法测试")
+    public void test6() {
+        DoublyLinkedList list = new DoublyLinkedList();
+        list.removeLast();
+        list.addLast(1);
+        list.forwardTraversal(val -> System.out.print(val + " "));
+        list.reverseTraversal(val -> System.out.print(val + " "));
+        list.addFirst(2);
+        list.forwardTraversal(val -> System.out.print(val + " "));
+        list.reverseTraversal(val -> System.out.print(val + " "));
+        list.insert(0,3);
+        list.forwardTraversal(val -> System.out.print(val + " "));
+        list.reverseTraversal(val -> System.out.print(val + " "));
+
+        list.forwardTraversal(val -> System.out.print(val + " "));
+        list.reverseTraversal(val -> System.out.print(val + " "));
+
+
     }
 }
