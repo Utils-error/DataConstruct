@@ -1,9 +1,6 @@
 package com.itseu.test;
 
-import com.itseu.common.impl.BinarySearchImpl;
-import com.itseu.common.impl.DoublyLinkedList;
-import com.itseu.common.impl.DynamicArray;
-import com.itseu.common.impl.SingleLinkedList;
+import com.itseu.common.impl.*;
 import org.junit.jupiter.api.DisplayName;
 
 import org.junit.Test;
@@ -117,6 +114,23 @@ public class ApplicationTest {
         list.forwardTraversal(val -> System.out.print(val + " "));
         list.reverseTraversal(val -> System.out.print(val + " "));
 
+
+    }
+
+    @Test
+    @DisplayName("循环链表方法测试")
+    public void test7() {
+        CircularLinkedList list = new CircularLinkedList();
+        list.addFisrt(1);
+        list.addFisrt(2);
+        list.addFisrt(4);
+        for(int val : list){
+            System.out.print(val + " ");
+        }
+        System.out.println();
+
+        System.out.println();
+        list.print();
 
     }
 }

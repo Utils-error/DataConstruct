@@ -12,7 +12,7 @@ public class DoublyLinkedList {
 
     /*节点定义*/
     @Data
-    private class Node {
+    private static class Node {
         private int val;
         private Node next;
         private Node prev;
