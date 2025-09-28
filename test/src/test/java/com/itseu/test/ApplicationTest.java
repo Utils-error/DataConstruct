@@ -1,10 +1,17 @@
 package com.itseu.test;
 
+import com.itseu.common.base.ListNode;
 import com.itseu.common.impl.*;
 import org.junit.jupiter.api.DisplayName;
 
 import org.junit.Test;
 import org.junit.Assert;
+import org.junit.rules.Stopwatch;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 
 
 public class ApplicationTest {
@@ -133,4 +140,43 @@ public class ApplicationTest {
         list.print();
 
     }
+
+    @Test
+    @DisplayName("递归方法测试")
+    public void test8(){
+        // RecursionMethodUtils.reversePrint("abc",0);
+        // System.out.println();
+        // System.out.println(RecursionMethodUtils.binarySearch(new int[]{1,2,3},0,2,1));
+        // int[] arr = {200,100,30,6,34,23,56};
+        // RecursionMethodUtils.bubbleSort(arr,arr.length-1);
+        // RecursionMethodUtils.insertionSort(arr,1);
+        // RecursionMethodUtils.insertionSort(arr,1,arr.length-1,1);
+        // System.out.println(Arrays.toString(arr));
+        // System.out.println(RecursionMethodUtils.fibonacci(4));
+        // System.out.println(RecursionMethodUtils.factorial(4));
+        // List<Integer> a =new LinkedList<>();
+        // for(int i = 1;i<=10;i++){
+        //     a.addFirst(i);
+        // }
+        // List<Integer> b =new LinkedList<>();
+        // List<Integer> c =new LinkedList<>();
+        // System.out.print(a + "\t");
+        // System.out.print(b+"\t");
+        // System.out.println(c+"\t");
+        // System.out.println("-------------------------");
+        // long start = System.currentTimeMillis();
+        // RecursionMethodUtils.hanoiTower(10,a,b,c);
+        // long end = System.currentTimeMillis();
+        // System.out.println(end-start);
+        // RecursionMethodUtils.printTri(10);
+        ListNode tail = new ListNode(5,null);
+        ListNode node1 = new ListNode(4,tail);
+        ListNode node2 = new ListNode(3,node1);
+        ListNode node3 = new ListNode(2,node2);
+        ListNode head = new ListNode(1,node3);
+        System.out.println(head.toString());
+        System.out.println(RecursionMethodUtils.reverseList3(head).toString());
+    }
+
+
 }
