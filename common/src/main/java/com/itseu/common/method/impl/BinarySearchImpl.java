@@ -1,6 +1,6 @@
-package com.itseu.common.impl;
+package com.itseu.common.method.impl;
 
-import com.itseu.common.BinarySearch;
+import com.itseu.common.method.BinarySearch;
 
 public class BinarySearchImpl implements BinarySearch {
     /*  二分查找（左闭右闭）

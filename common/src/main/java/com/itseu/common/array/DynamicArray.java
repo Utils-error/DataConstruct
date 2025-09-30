@@ -1,4 +1,4 @@
-package com.itseu.common.impl;
+package com.itseu.common.array;
 
 
 import lombok.Data;

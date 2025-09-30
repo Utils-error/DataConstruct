@@ -1,4 +1,4 @@
-package com.itseu.common;
+package com.itseu.common.method;
 
 public interface BinarySearch {
     int search(int[] arr, int targert);

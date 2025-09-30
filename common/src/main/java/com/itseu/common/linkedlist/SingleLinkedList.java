@@ -1,7 +1,6 @@
-package com.itseu.common.impl;
+package com.itseu.common.linkedlist;
 
 import lombok.Data;
-import lombok.val;
 
 import java.util.Iterator;
 import java.util.function.Consumer;
@@ -126,5 +125,19 @@ public class SingleLinkedList implements Iterable<Integer> {
             throw new IllegalArgumentException(String.format("Index [%d] 不合法%n", index));
         }
         prev.next = prev.next.next;
+    }
+
+    /*根据值删除节点:遍历*/
+    public void removeByValue(int value) {
+        Node curr = head.next;
+        Node prev = head;
+        while (curr != null) {
+            if(curr.val == value){
+                prev.next = curr.next;
+            } else {
+                prev = curr;
+            }
+            curr = curr.next;
+        }
     }
 }

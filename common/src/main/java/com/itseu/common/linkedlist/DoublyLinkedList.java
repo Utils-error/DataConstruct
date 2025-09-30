@@ -1,8 +1,7 @@
-package com.itseu.common.impl;
+package com.itseu.common.linkedlist;
 
 import lombok.Data;
 
-import java.util.Iterator;
 import java.util.function.Consumer;
 
 /*双向链表实现*/

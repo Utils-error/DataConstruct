@@ -1,17 +1,16 @@
 package com.itseu.test;
 
+import com.itseu.common.array.DynamicArray;
 import com.itseu.common.base.ListNode;
-import com.itseu.common.impl.*;
+import com.itseu.common.linkedlist.CircularLinkedList;
+import com.itseu.common.linkedlist.DoublyLinkedList;
+import com.itseu.common.linkedlist.SingleLinkedList;
+import com.itseu.common.method.impl.BinarySearchImpl;
+import com.itseu.common.method.impl.RecursionMethodUtils;
 import org.junit.jupiter.api.DisplayName;
 
 import org.junit.Test;
 import org.junit.Assert;
-import org.junit.rules.Stopwatch;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
 
 
 public class ApplicationTest {
@@ -83,24 +82,17 @@ public class ApplicationTest {
     @DisplayName("链表方法测试")
     public void test5() {
         SingleLinkedList list = new SingleLinkedList();
-        list.addLast(1);
-        list.addLast(2);
+        list.addLast(3);
+        list.addLast(3);
         list.addFirst(3);
-        list.loop1(val -> System.out.print(val + " "));
+        list.addLast(3);
+        list.addLast(30);
+        list.loop1(val -> System.out.print(val+" "));
+        System.out.println();
+        list.removeByValue(3);
+        list.loop1(val -> System.out.print(val+" "));
         System.out.println();
 
-        list.insert(0,4);
-        list.insert(4,5);
-        list.loop1(val -> System.out.print(val + " "));
-
-        System.out.println();
-
-        list.remove(0);
-        list.loop1(val -> System.out.print(val + " "));
-        System.out.println();
-        list.remove(3);
-        list.loop1(val -> System.out.print(val + " "));
-        System.out.println();
     }
 
     @Test
@@ -169,13 +161,37 @@ public class ApplicationTest {
         // long end = System.currentTimeMillis();
         // System.out.println(end-start);
         // RecursionMethodUtils.printTri(10);
-        ListNode tail = new ListNode(5,null);
-        ListNode node1 = new ListNode(4,tail);
-        ListNode node2 = new ListNode(3,node1);
-        ListNode node3 = new ListNode(2,node2);
-        ListNode head = new ListNode(1,node3);
-        System.out.println(head.toString());
-        System.out.println(RecursionMethodUtils.reverseList3(head).toString());
+        ListNode tail = new ListNode(60,null);
+        ListNode node1 = new ListNode(50,tail);
+        ListNode node2 = new ListNode(40,tail);
+        ListNode node3 = new ListNode(30,node2);
+        ListNode node4 = new ListNode(20,node3);
+        ListNode head = new ListNode(10,node4);
+
+        ListNode tail1 = new ListNode(44,null);
+        ListNode node11 = new ListNode(37,tail1);
+        ListNode node21 = new ListNode(35,node11);
+        ListNode node31 = new ListNode(34,node21);
+        ListNode node41 = new ListNode(25,node31);
+        ListNode head1 = new ListNode(12,node41);
+
+        ListNode tail11 = new ListNode(25,null);
+        ListNode node111 = new ListNode(18,tail11);
+        ListNode node211 = new ListNode(15,node111);
+        ListNode node311 = new ListNode(55,node211);
+        ListNode node411 = new ListNode(18,node311);
+        ListNode head111 = new ListNode(25,node411);
+
+        tail11.next = head111;
+
+        // System.out.println(head111);
+        // System.out.println(RecursionMethodUtils.removeLastN3(head,0).toString());
+        // System.out.println(RecursionMethodUtils.removeAllDuplicates2(head).toString());
+        // System.out.println(RecursionMethodUtils.mergeTwoLists2(head1,head));
+        // System.out.println(RecursionMethodUtils.mergeKList(new ListNode[]{head1,head111,head}));
+        // System.out.println(RecursionMethodUtils.findMid(head));
+        // System.out.println(RecursionMethodUtils.isPalindrome3(head111));
+        System.out.println(RecursionMethodUtils.isCycle(head111).value);
     }
 
 
