@@ -7,10 +7,13 @@ import com.itseu.common.linkedlist.DoublyLinkedList;
 import com.itseu.common.linkedlist.SingleLinkedList;
 import com.itseu.common.method.impl.BinarySearchImpl;
 import com.itseu.common.method.impl.RecursionMethodUtils;
+import com.itseu.common.method.impl.SortMethodUtils;
 import org.junit.jupiter.api.DisplayName;
 
 import org.junit.Test;
 import org.junit.Assert;
+
+import java.util.Arrays;
 
 
 public class ApplicationTest {
@@ -194,5 +197,14 @@ public class ApplicationTest {
         System.out.println(RecursionMethodUtils.isCycle(head111).value);
     }
 
+    @Test
+    @DisplayName("递归合并：合并两个有序(升序）数组")
+    public void test9() {
+        int[] from = {1,19,22,4,5,21};
+        int[] to = new int[from.length];
+        SortMethodUtils.merge(from,0,2,3,5,to,0);
+        System.out.println(Arrays.toString(to));
+        System.out.println(Arrays.toString(to));
+    }
 
 }
