@@ -8,6 +8,10 @@ import com.itseu.common.linkedlist.SingleLinkedList;
 import com.itseu.common.method.impl.BinarySearchImpl;
 import com.itseu.common.method.impl.RecursionMethodUtils;
 import com.itseu.common.method.impl.SortMethodUtils;
+import com.itseu.common.queue.impl.ArrayQueue1;
+import com.itseu.common.queue.impl.ArrayQueue2;
+import com.itseu.common.queue.impl.ArrayQueue3;
+import com.itseu.common.queue.impl.LinkedListQueue;
 import org.junit.jupiter.api.DisplayName;
 
 import org.junit.Test;
@@ -205,6 +209,51 @@ public class ApplicationTest {
         SortMethodUtils.merge(from,0,2,3,5,to,0);
         System.out.println(Arrays.toString(to));
         System.out.println(Arrays.toString(to));
+    }
+
+    @Test
+    @DisplayName("基于链表实现的队列")
+    public void test10() {
+        LinkedListQueue<Integer> queue = new LinkedListQueue();
+        System.out.println(queue.isEmpty());
+        for(Integer i  : queue){
+            System.out.print(i + " ");
+        };
+        queue.offer(10);
+        queue.offer(2);
+
+        for(Integer i  : queue){
+            System.out.print(i + " ");
+        }
+        System.out.println(queue.poll());
+        System.out.println();
+        for(Integer i  : queue){
+            System.out.print(i + " ");
+        }
+
+    }
+
+    @Test
+    @DisplayName("基于环形数组实现的队列")
+    public void test11() {
+        ArrayQueue3<Integer> queue = new ArrayQueue3(3);
+        queue.offer(10);
+        queue.offer(2);
+        queue.offer(3);
+        queue.offer(4);
+        for(Integer i  : queue){
+            System.out.print(i + " ");
+        }
+        System.out.println();
+        System.out.println(queue.poll());
+        System.out.println(queue.peek());
+        System.out.println();
+        for(Integer i  : queue){
+            System.out.print(i + " ");
+        }
+        System.out.println();
+
+
     }
 
 }
