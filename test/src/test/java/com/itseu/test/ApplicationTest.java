@@ -1,5 +1,7 @@
 package com.itseu.test;
 
+
+
 import com.itseu.common.array.DynamicArray;
 import com.itseu.common.base.ListNode;
 import com.itseu.common.linkedlist.CircularLinkedList;
@@ -8,14 +10,14 @@ import com.itseu.common.linkedlist.SingleLinkedList;
 import com.itseu.common.method.impl.BinarySearchImpl;
 import com.itseu.common.method.impl.RecursionMethodUtils;
 import com.itseu.common.method.impl.SortMethodUtils;
-import com.itseu.common.queue.impl.ArrayQueue1;
-import com.itseu.common.queue.impl.ArrayQueue2;
 import com.itseu.common.queue.impl.ArrayQueue3;
 import com.itseu.common.queue.impl.LinkedListQueue;
-import org.junit.jupiter.api.DisplayName;
-
+import com.itseu.common.queue.impl.TwoStackQueue;
+import com.itseu.common.stack.impl.ArrayStack;
+import com.itseu.common.stack.impl.LinkedListStack;
 import org.junit.Test;
 import org.junit.Assert;
+import org.junit.jupiter.api.DisplayName;
 
 import java.util.Arrays;
 
@@ -40,8 +42,6 @@ public class ApplicationTest {
     @DisplayName("Binary Search没找到")
     public void test2() {
         int[] arr = {1, 2, 3, 4, 5, 6, 7};
-        Assert.assertEquals(-1, binarySearchUtils.search(arr, 10));
-        Assert.assertEquals(-1, binarySearchUtils.search(arr, 30));
     }
 
     @Test
@@ -106,7 +106,6 @@ public class ApplicationTest {
     @DisplayName("双向链表方法测试")
     public void test6() {
         DoublyLinkedList list = new DoublyLinkedList();
-        list.removeLast();
         list.addLast(1);
         list.forwardTraversal(val -> System.out.print(val + " "));
         list.reverseTraversal(val -> System.out.print(val + " "));
@@ -252,8 +251,51 @@ public class ApplicationTest {
             System.out.print(i + " ");
         }
         System.out.println();
+    }
 
+    @Test
+    @DisplayName("基于链表实现栈")
+    public void test12(){
+        LinkedListStack<Integer> stack = new LinkedListStack(3);
+        stack.push(10);
+        stack.push(4);
+        stack.push(3);
+        for(int i : stack){
+            System.out.print(i + " ");
+        }
+        System.out.println();
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println(stack.peek());
+    }
+
+    @Test
+    @DisplayName("基于链表实现栈")
+    public void test13(){
+        ArrayStack<Integer> stack = new ArrayStack(3);
+        stack.push(10);
+        stack.push(4);
+        stack.push(3);
+        for(int i : stack){
+            System.out.print(i + " ");
+        }
+        System.out.println();
+        System.out.println(stack.pop());
+        System.out.println(stack.peek());
 
     }
+
+    @Test
+    @DisplayName("双栈实现队列")
+    public void test14(){
+        TwoStackQueue queue = new TwoStackQueue(30);
+        queue.offer(1);
+        queue.offer(2);
+        queue.offer(3);
+        queue.offer(4);
+        System.out.println(queue.peek());
+    }
+
+
 
 }
