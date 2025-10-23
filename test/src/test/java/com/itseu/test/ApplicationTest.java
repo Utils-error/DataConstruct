@@ -4,6 +4,8 @@ package com.itseu.test;
 
 import com.itseu.common.array.DynamicArray;
 import com.itseu.common.base.ListNode;
+import com.itseu.common.deque.impl.ArrayDeque1;
+import com.itseu.common.deque.impl.LinkedListDeque;
 import com.itseu.common.linkedlist.CircularLinkedList;
 import com.itseu.common.linkedlist.DoublyLinkedList;
 import com.itseu.common.linkedlist.SingleLinkedList;
@@ -296,6 +298,51 @@ public class ApplicationTest {
         System.out.println(queue.peek());
     }
 
+    @Test
+    @DisplayName("基于链表的双端队列")
+    public void test15(){
+        LinkedListDeque<Integer> deque = new LinkedListDeque(5);
+        deque.offerFirst(1);
+        deque.offerFirst(2);
+        deque.offerFirst(3);
+        deque.offerLast(4);
+        deque.offerLast(5);
+
+        for(int i : deque){
+            System.out.print(i + " ");
+        }
+        // System.out.println();
+        // deque.pollFirst();
+        // deque.pollLast();
+        // System.out.println(deque.peekFirst());
+        // System.out.println(deque.peekLast());
+        // deque.pollFirst();
+        // deque.pollLast();
+        // System.out.println(deque.peekFirst());
+    }
+
+    @Test
+    @DisplayName("基于循环数组的双端队列")
+    public void test16(){
+        ArrayDeque1<Integer> deque = new ArrayDeque1(5);
+        deque.offerFirst(1);
+        deque.offerFirst(2);
+        deque.offerFirst(3);
+        deque.offerLast(4);
+        deque.offerLast(5);
+
+        for(int i : deque){
+            System.out.print(i + " ");
+        }
+        System.out.println();
+        deque.pollFirst();
+        deque.pollLast();
+        System.out.println(deque.peekFirst());
+        System.out.println(deque.peekLast());
+        deque.pollFirst();
+        deque.pollLast();
+        System.out.println(deque.peekFirst());
+    }
 
 
 }
