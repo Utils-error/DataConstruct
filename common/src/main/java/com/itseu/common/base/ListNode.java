@@ -43,4 +43,14 @@ public class ListNode implements Iterable<Integer> {
         sb.append("]");
         return sb.toString();
     }
+
+    public static ListNode of(int... values) {
+        ListNode dummy = new ListNode(-1, null);
+        ListNode current = dummy;
+        for(int value : values) {
+            current.next = new ListNode(value, null);
+            current = current.next;
+        }
+        return dummy.next;
+    }
 }

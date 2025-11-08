@@ -12,6 +12,10 @@ import com.itseu.common.linkedlist.SingleLinkedList;
 import com.itseu.common.method.impl.BinarySearchImpl;
 import com.itseu.common.method.impl.RecursionMethodUtils;
 import com.itseu.common.method.impl.SortMethodUtils;
+import com.itseu.common.priorityQueue.PriorityQueue1;
+import com.itseu.common.priorityQueue.PriorityQueue2;
+import com.itseu.common.priorityQueue.PriorityQueue3;
+import com.itseu.common.priorityQueue.Student;
 import com.itseu.common.queue.impl.ArrayQueue3;
 import com.itseu.common.queue.impl.LinkedListQueue;
 import com.itseu.common.queue.impl.TwoStackQueue;
@@ -342,6 +346,47 @@ public class ApplicationTest {
         deque.pollFirst();
         deque.pollLast();
         System.out.println(deque.peekFirst());
+    }
+
+    @Test
+    @DisplayName("基于无序数组的优先队列")
+    public void test17(){
+        PriorityQueue1<Student> priorityQueue1 = new PriorityQueue1<>(10);
+        priorityQueue1.offer(new Student("a"));
+        priorityQueue1.offer(new Student("b"));
+        priorityQueue1.offer(new Student("c"));
+        System.out.println(priorityQueue1.poll());
+        System.out.println(priorityQueue1.peek());
+
+    }
+
+    @Test
+    @DisplayName("基于有序数组的优先队列")
+    public void test18(){
+        PriorityQueue2<Student> priorityQueue2 = new PriorityQueue2<>(2);
+        priorityQueue2.offer(new Student("e"));
+        priorityQueue2.offer(new Student("a"));
+        priorityQueue2.offer(new Student("d"));
+
+        System.out.println(priorityQueue2.poll());
+        System.out.println(priorityQueue2.peek());
+
+    }
+
+    @Test
+    @DisplayName("基于数组实现的最大堆")
+    public void test19(){
+        PriorityQueue3<Student> priorityQueue3 = new PriorityQueue3<>(10);
+        priorityQueue3.offer(new Student("a"));
+        priorityQueue3.offer(new Student("b"));
+        priorityQueue3.offer(new Student("c"));
+        priorityQueue3.offer(new Student("d"));
+        priorityQueue3.offer(new Student("e"));
+        priorityQueue3.print();
+        priorityQueue3.poll();
+        // System.out.println(priorityQueue3.peek());
+        priorityQueue3.print();
+
     }
 
 
