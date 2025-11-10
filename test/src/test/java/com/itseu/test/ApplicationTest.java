@@ -4,6 +4,8 @@ package com.itseu.test;
 
 import com.itseu.common.array.DynamicArray;
 import com.itseu.common.base.ListNode;
+import com.itseu.common.blockQueue.impl.BlockingQueue1;
+import com.itseu.common.blockQueue.impl.BlockingQueue2;
 import com.itseu.common.deque.impl.ArrayDeque1;
 import com.itseu.common.deque.impl.LinkedListDeque;
 import com.itseu.common.linkedlist.CircularLinkedList;
@@ -389,5 +391,67 @@ public class ApplicationTest {
 
     }
 
+    @Test
+    @DisplayName("阻塞队列：单锁实现，尾进头出")
+    public void test29() throws InterruptedException {
+        BlockingQueue1<String> blockingQueue1 = new BlockingQueue1<>(3);
+
+        new Thread(() ->{
+            try {
+                System.out.println(System.currentTimeMillis()+" begin");
+                blockingQueue1.offer("task1");
+                System.out.println(blockingQueue1);
+                blockingQueue1.offer("task2");
+                System.out.println(blockingQueue1);
+                blockingQueue1.offer("task3");
+                System.out.println(blockingQueue1);
+                blockingQueue1.offer("task4",5000L);
+                System.out.println(blockingQueue1);
+                System.out.println(System.currentTimeMillis()+" end");
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        },"producer").start();
+        Thread.sleep(2000);
+        new Thread(() -> {
+            try {
+                blockingQueue1.poll();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        },"consumer").start();
+    }
+
+
+    @Test
+    @DisplayName("阻塞队列：双锁实现，头尾各一把锁")
+    public void test30() throws InterruptedException {
+        // BlockingQueue1<String> queue = new BlockingQueue1<>(3);
+        BlockingQueue2<String> queue = new BlockingQueue2<>(3);
+        queue.offer("task1");
+        new Thread(() ->{
+            try {
+                queue.offer("task2");
+                System.out.println(queue);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        },"producer").start();
+
+        new Thread(() -> {
+            try {
+                queue.poll();
+                System.out.println(queue);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        },"consumer").start();
+
+        while (true){
+
+        }
+
+
+    }
 
 }
